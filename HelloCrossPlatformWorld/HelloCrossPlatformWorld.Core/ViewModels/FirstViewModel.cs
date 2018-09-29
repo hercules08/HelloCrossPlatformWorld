@@ -1,15 +1,33 @@
 using MvvmCross.Core.ViewModels;
+using Plugin.TextToSpeech.Abstractions;
+using System.Windows.Input;
 
 namespace HelloCrossPlatformWorld.Core.ViewModels
 {
     public class FirstViewModel
         : MvxViewModel
     {
-        string hello = "Hello MvvmCross";
-        public string Hello
+
+        readonly ITextToSpeech textToSpeech;
+
+        public FirstViewModel(ITextToSpeech textToSpeech)
         {
-            get { return hello; }
-            set { SetProperty(ref hello, value); }
+            this.textToSpeech = textToSpeech;
+            SayHelloCommand = new MvxCommand(SayHello);
+        }
+
+        public ICommand SayHelloCommand { get; private set; }
+
+        void SayHello()
+        {
+            textToSpeech.Speak($"Hello {Name}");
+        }
+
+        string name = "";
+        public string Name
+        {
+            get { return name; }
+            set { SetProperty(ref name, value);  }
         }
     }
 }

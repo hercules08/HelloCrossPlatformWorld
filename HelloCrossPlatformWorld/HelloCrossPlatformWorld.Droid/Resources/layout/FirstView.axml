@@ -5,8 +5,14 @@
     </android.support.design.widget.AppBarLayout>
     <FrameLayout android:id="@+id/content_frame" android:layout_below="@id/toolbar_layout" android:layout_width="match_parent" android:layout_height="match_parent">
         <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
-            <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="40dp" local:MvxBind="Text Hello" />
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="40dp" local:MvxBind="Text Hello" />
+            <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="40dp" local:MvxBind="Text Name" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="40dp" local:MvxBind="Text Name" />
+			<Button
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textSize="40dp"
+				android:text="Say Hello"
+				local:MvxBind="Click SayHelloCommand" />
         </LinearLayout>
     </FrameLayout>
 </RelativeLayout>

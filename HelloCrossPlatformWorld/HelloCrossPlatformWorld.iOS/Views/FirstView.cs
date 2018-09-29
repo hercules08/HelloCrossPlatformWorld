@@ -17,8 +17,9 @@ namespace HelloCrossPlatformWorld.iOS.Views
             base.ViewDidLoad();
 
             var set = this.CreateBindingSet<FirstView, FirstViewModel>();
-            set.Bind(Label).To(vm => vm.Hello);
-            set.Bind(TextField).To(vm => vm.Hello);
+            set.Bind(Label).To(vm => vm.Name);
+            set.Bind(TextField).To(vm => vm.Name);
+            set.Bind(SayHelloButton).To(vm => vm.SayHelloCommand);
             set.Apply();
         }
     }
